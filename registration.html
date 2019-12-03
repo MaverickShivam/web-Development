@@ -1,0 +1,111 @@
+<!doctype html>
+<html>
+	<head>
+	</head>
+		<link href="login.css" rel="stylesheet" type="text/css"/>
+	<body style="background-image:url(loginbg.jpg);filter:">
+	
+		<div class="box">
+		<center>
+		<img src="logo.png"height=100px width=100px>
+		<h3>B.M.S. College of Engineering</h3>
+		<h4>Bangalore, 560019</h4>
+		</center>
+		</div>
+		<div class="container">
+		<div class="box3" style="float:left;">
+		
+		<center>
+		<img src="profile1.png" style="height:80px; width:80px; padding:10px;">
+		<form>
+			<input type="text" id="fname" placeholder="First Name">
+			<input type="text" id="lname" placeholder="Last Name">
+			<br>
+			<input type="text" id="number" placeholder="Mobile Number">
+			<input type="email" id="email" placeholder="Email ID" style="margin-top:10px;" >
+			<br>
+			<input type="password" id="password1" placeholder="Password" style="margin-top:10px;">
+			<br>
+			<br>
+			<select id="acnttype">
+				<option value="student">Student</option>
+				<option value="admin">Admin</option>
+			</select>
+			<br>
+			<br>
+			<br><button1 id="signup" style="margin-top:50px;">SignUp</button1>
+			<br>
+			
+		
+		</form>
+		<br>
+		</center>
+		</div>
+		
+		
+		
+		<div class="box2" style="float:left; margin-left:30px;">
+		<center>
+		<img src="profile.png" style="height:80px; width:80px; padding:10px;">
+		<form>
+			<input type="email" name="lemail" placeholder="Email ID" >
+			<br>
+			<input type="password" name="lpassword" placeholder="Password" style="margin-top:10px;">
+			<br>
+			<br>
+			<br><a href="index.html"  style="text-decoration:none;"><button1 style="margin-top:50px;">LogIn</button1></a>
+			<br>
+			<p> </p>
+		
+		</form>
+		<br>
+		<a href="passwordreset.html">Reset Password</a>
+		</center>
+		</div>
+		</div>
+		
+		<script>
+			
+			document.getElementById("signup").onclick=function(){signup()};
+			function signup()
+			{
+				var fname=document.getElementById("fname").value;
+				var lname=document.getElementById("lname").value;
+				var mnumber=document.getElementById("acnttype").value;
+				var email=document.getElementById("email").value;
+				var password=document.getElementById("password1").value;
+				if(fname.length!=0 &&email.length!=0&&password.length!=0)
+				{
+					var link="https://docs.google.com/forms/d/1jNiWsE6JDh3U_7UiPddKmlTTUZwcSQ3YOs1hT_eUD2s/formResponse?entry.582992019="+fname+"&entry.1982212027="+lname+"&entry.1679647878="+email+"&entry.2016748234="+mnumber+"&entry.986314903="+password;
+					const Http = new XMLHttpRequest();
+					Http.open("GET",link);
+					Http.send();
+					if(mnumber=="student")
+					{
+						setTimeout(closeandopen1,300);
+					}
+					else if(mnumber=="admin")
+					{
+						setTimeout(closeandopen2,300);
+					}
+				}
+				else
+				{
+					alert("Please Enter All Details");
+				}
+				
+			}
+			function closeandopen1()
+			{
+				window.open("index.html","_self");
+			}
+			function closeandopen2()
+			{
+				window.open("https://www.shk-booking.com/wp-content/uploads/2019/08/Welcome.jpg","_self");
+			}
+			
+		</script>
+		
+	</body>
+</html>
+
